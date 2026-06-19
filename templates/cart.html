@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShoppingCart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Shopping Cart</h1>
+<div id="cart-list"></div>
+<h2 id="total">Total: ₹0</h2>
+<button class="checkout-btn" onclick="alert('Order Placed Successfully!')">
+    Checkout
+</button>
+
+<a href="/checkout">
+    <button>Checkout</button>
+</a>
+
+<script>
+
+let items = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+let cartList = document.getElementById("cart-list");
+
+let total = 0;
+
+items.forEach(function(item){
+
+    total += parseInt(item.price.replace("₹","").replace(",",""));
+
+    cartList.innerHTML += `
+        <div style="border:1px solid #ddd;padding:15px;margin:15px;width:250px;">
+            <img src="${item.image}" width="150">
+            <h3>${item.name}</h3>
+            <p>${item.price}</p>
+        </div>
+    `;
+});
+
+document.getElementById("total").innerText =
+"Total: ₹" + total.toLocaleString();
+
+</script>
+</body>
+</html>

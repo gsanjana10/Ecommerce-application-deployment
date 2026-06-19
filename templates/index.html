@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>E-Shop</h2>
+
+<div>
+    <a href="/login">
+        <button>Login</button>
+    </a>
+
+    <a href="/register">
+        <button>Register</button>
+    </a>
+
+    <a href="/cart">
+        <button id="cart-count">Cart (0)</button>
+    </a>
+</div>
+</nav>
+
+<h1>Welcome to My E-Commerce Store</h1>
+<input
+    type="text"
+    id="searchInput"
+    placeholder="Search products..."
+    onkeyup="searchProducts()">
+
+{% if username %}
+<h3>Welcome, {{ username }} 👋</h3>
+{% endif %}
+
+<div class="product">
+    <h2>Smartphone</h2>
+    <img src="{{ url_for('static', filename='images/Smartphoneimage.jpg') }}" width="250">
+    <p>Price: ₹20,000</p>
+   <button onclick="addToCart('Smartphone','₹20,000','/static/images/Smartphoneimage.jpg')">
+    Add to Cart
+</button>
+</div>
+
+<div class="product">
+    <h2>Laptop</h2>
+    <img src="{{ url_for('static', filename='images/Laptopimage.avif') }}" width="250">
+    <p>Price: ₹50,000</p>
+    <button onclick="addToCart('Laptop','₹50,000','/static/images/Laptopimage.avif')">
+        Add to Cart
+    </button>
+</div>
+
+<div class="product">
+    <h2>Headphones</h2>
+    <img src="{{ url_for('static', filename='images/Headphonesimage.jpg') }}" width="250">
+    <p>Price: ₹2,000</p>
+   <button onclick="addToCart('Headphones','₹2,000','/static/images/Headphonesimage.jpg')">
+     Add to Cart
+</button>
+</div>
+
+<div class="product">
+    <h2>Smart Watch</h2>
+    <img src="{{ url_for('static', filename='images/Watchimage.png') }}" width="250">
+    <p>Price: ₹5,000</p>
+    <button onclick="addToCart('Smart Watch','₹5,000','/static/images/Watchimage.png')">
+     Add to Cart
+    </button>
+</div>
+
+<div class="product">
+    <h2>Camera</h2>
+    <img src="{{ url_for('static', filename='images/Cameraimage.webp') }}" width="250">
+    <p>Price: ₹35,000</p>
+    <button onclick="addToCart('Camera','₹35,000','/static/images/Cameraimage.webp')">
+     Add to Cart
+    </button>
+</div>
+
+<div class="product">
+    <h2>Tablet</h2>
+    <img src="{{ url_for('static', filename='images/Tabletimage.jpg') }}" width="250">
+    <p>Price: ₹25,000</p>
+    <button onclick="addToCart('Tablet','₹25,000','/static/images/Tabletimage.jpg')">
+     Add to Cart
+    </button>
+</div>
+<script>
+let cart = [];
+
+function addToCart(name, price, image) {
+
+    cart.push({
+        name: name,
+        price: price,
+        image: image
+    });
+
+    document.getElementById("cart-count").innerText =
+        "Cart (" + cart.length + ")";
+
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+}
+function searchProducts() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let products = document.getElementsByClassName("product");
+
+    for (let i = 0; i < products.length; i++) {
+        let name = products[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+
+        if (name.includes(input)) {
+            products[i].style.display = "block";
+        } else {
+            products[i].style.display = "none";
+        }
+    }
+}
+</script>
+</body>
+</html>
