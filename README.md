@@ -50,60 +50,52 @@ A responsive E-Commerce web application developed using Flask, HTML, CSS, and Ja
 
 ---
 
-## 📂 Project Structure
+# 📁 Project Structure
 
-```text
-flask-ecommerce-store/
-│
-├── app.py
-├── requirements.txt
-├── Dockerfile
-├── static/
-│   ├── css/
-│   ├── images/
-│   └── js/
-│
-├── templates/
-│   ├── index.html
-│   ├── cart.html
-│   ├── checkout.html
-│   └── order_confirmation.html
-│
-└── README.md
+- app.py
+- requirements.txt
+- Dockerfile
+- README.md
+- static/
+  - style.css
+  - images/
+- templates/
+  - index.html
+  - login.html
+  - register.html
+  - cart.html
+  - checkout.html
+  - success.html
+- instance/
+  - users.db
 
 # ⚙️ Installation & Setup
 
-## Clone the Repository
+## Clone Repository
 
-```bash
-git clone https://github.com/gsanjana10/flask-ecommerce-store.git
-cd flask-ecommerce-store
-Install Dependencies
-pip install -r requirements.txt
-Run the Flask Application
-python app.py
-Open in Browser
-http://127.0.0.1:5000
-Docker Deployment
-Build Docker Image
-docker build -t flask-ecommerce-store .
-Run Docker Container
-docker run -p 5000:5000 flask-ecommerce-store
-Access the Application
-http://localhost:5000
+- Clone the repository
+- Navigate to project folder
+
+## Install Dependencies
+
+- Install all required packages using requirements.txt
+
+## Run Application
+
+- Run the Flask application
+- Open the application in your browser
 
 # 🎯 Learning Outcomes
 
-- Built a complete Flask-based E-Commerce web application.
-- Developed user registration and login functionality.
-- Implemented shopping cart and checkout features.
-- Integrated SQLite database for user data management.
-- Designed responsive web pages using HTML and CSS.
-- Containerized the application using Docker.
-- Learned Git and GitHub for version control and collaboration.
-- Gained hands-on experience with Flask routing and templates.
-- Improved backend development and database integration skills.
-- Applied basic DevOps practices through Docker deployment.
+- Built a complete Flask-based E-Commerce web application
+- Developed user registration and login functionality
+- Implemented shopping cart and checkout features
+- Integrated SQLite database for user management
+- Designed responsive web pages using HTML and CSS
+- Containerized the application using Docker
+- Learned Git and GitHub for version control
+- Gained hands-on experience with Flask routing and templates
+- Applied basic DevOps practices through Docker deployment
 
 # 🚀 Future Enhancements
 
@@ -118,12 +110,9 @@ http://localhost:5000
 - Email Notifications for Orders
 - CI/CD Pipeline using GitHub Actions
 - Cloud Deployment on AWS or Azure
-- Multi-Category Product Management
-- Secure Authentication and Authorization
-- Real-Time Order Tracking
 
 # 👩‍💻 Author
 
-**Sanjana Gampala
+**Sanjana Gampala**
 
 
